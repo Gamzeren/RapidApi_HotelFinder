@@ -1,0 +1,59 @@
+﻿<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <h1>Sona Tur</h1>
+                    <p>
+                        Tatilde hem konforu hem de uygun fiyatı yakalamak artık çok kolay! Sona Tur ile yurt içi ve yurt dışındaki en iyi otel fırsatlarını keşfedin, hayalinizdeki konaklamaya hemen adım atın.
+                    </p>
+                    <a href="#" class="primary-btn">Keşfetmeye Başla</a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                <div class="booking-form">
+                    <h3>Hayalinizdeki Oteli Bulalım</h3>
+                    <form asp-action="Search" method="post">
+                        <div class="check-date">
+                            <label for="city">Şehir:</label>
+                            <input type="text" class="city-input" id="City" name="City">
+                        </div>
+                        <div class="check-date">
+                            <label for="date-in">Giriş Tarihi:</label>
+                            <input type="text" class="date-input" id="CheckInDate" name="CheckInDate">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="check-date">
+                            <label for="date-out">Çıkış Tarihi:</label>
+                            <input type="text" class="date-input" id="CheckOutDate" name="CheckOutDate">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="select-option">
+                            <label for="guest">Yetişkin:</label>
+                            <select name="Adults" id="Adults">
+                                <option value="1">1 Yetişkin</option>
+                                <option value="2">2 Yetişkin</option>
+                                <option value="3">3 Yetişkin</option>
+                                <option value="4">4 Yetişkin</option>
+                            </select>
+                        </div>
+                        <div class="select-option">
+                            <label for="room">Çocuk:</label>
+                            <select name="children id="children">
+                                <option value="1">1 Çocuk</option>
+                                <option value="2">2 Çocuk</option>
+                                <option value="3">3 Çocuk</option>
+                            </select>
+                        </div>
+                        <button type="submit">Otellerİ Bul</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-1.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-2.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-3.jpg"></div>
+    </div>
+</section>

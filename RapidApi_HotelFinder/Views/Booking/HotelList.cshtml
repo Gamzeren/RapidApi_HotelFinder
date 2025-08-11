@@ -1,0 +1,90 @@
+﻿@model List<RapidApi_HotelFinder.Models.HotelResultViewModel>
+
+@{
+	ViewData["Title"] = "HotelList";
+	Layout = "~/Views/Shared/_BookingLayout.cshtml";
+}
+
+<div class="breadcrumb-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb-text">
+					<h2>Bulunan Oteller</h2>
+					<div class="bt-option">
+						<a href="/Booking/Index/">Anasayfa</a>
+						<span>Oteller</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumb Section End -->
+<!-- Rooms Section Begin -->
+<section class="rooms-section spad">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-4 col-md-6">
+					<div class="room-item">
+						<img src="@item.HotelImage" alt="@item.HotelName">
+						<div class="ri-text">
+							<h4>@item.HotelName</h4>
+							@* <h3>159$<span>/Pernight</span></h3> *@
+							<table>
+								<tbody>
+									<tr>
+										<td class="r-o">Giriş Tarihi: </td>
+										<td>@item.CheckInDate.ToShortDateString()</td>
+									</tr>
+									<tr>
+										<td class="r-o">Çıkış:</td>
+										<td>@item.CheckOutDate.ToShortDateString()</td>
+									</tr>
+									<tr>
+										<td class="r-o">Konum:</td>
+										<td>@item.CityName, @item.CountryCode.ToUpper()</td>
+									</tr>
+									<tr>
+										<td class="r-o">Açıklama:</td>
+										<td>
+											@if (!string.IsNullOrEmpty(item.Description))
+											{
+												@if (item.Description.Length <= 100)
+												{
+													@item.Description
+												}
+												else
+												{
+													@($"{item.Description.Substring(0, 100)}...")
+												}
+											}
+											else
+											{
+												<em>Bilgi yok</em>
+											}
+										</td>
+									</tr>
+									<tr>
+										<td> <strong> @item.ReviewScore </strong> - @item.ReviewScoreWord</td>
+									</tr>
+								</tbody>
+							</table>
+							<a href="@Url.Action("HotelDetail", "Booking", new { hotelId = item.HotelId, arrivalDate = item.CheckInDate, departureDate = item.CheckOutDate })" class="primary-btn">Detaylar</a>
+						</div>
+					</div>
+				</div>
+			}
+			<div class="col-lg-12">
+				<div class="room-pagination">
+					<a href="#">1</a>
+					<a href="#">2</a>
+					<a href="#">ileri <i class="fa fa-long-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
